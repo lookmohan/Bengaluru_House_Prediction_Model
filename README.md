@@ -6,7 +6,8 @@ This repository contains the code and files for a Bengaluru House Price Predicti
 
 Here is an example of the output from the Bengaluru House Price Prediction model:
 
-(images/house_price_prediction_result.png)
+![UI](https://github.com/user-attachments/assets/7d81e333-60d8-4e3d-b177-963662b22ed7)
+
 
 ## Directory Structure
 
