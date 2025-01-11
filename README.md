@@ -2,6 +2,12 @@
 
 This repository contains the code and files for a Bengaluru House Price Prediction Model. The project uses machine learning to predict house prices based on location and other features. It includes model training, Flask backend, and a simple frontend.
 
+### Model Prediction Results
+
+Here is an example of the output from the Bengaluru House Price Prediction model:
+
+(images/house_price_prediction_result.png)
+
 ## Directory Structure
 
 ```
