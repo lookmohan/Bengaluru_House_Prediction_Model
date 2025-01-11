@@ -1,6 +1,10 @@
+Here’s the updated and corrected version of your `README.md` file with the necessary changes, including the Nginx configuration steps and other improvements:
+
+---
+
 # Bengaluru House Price Prediction Model
 
-This repository contains the code and files for a Bengaluru House Price Prediction Model. The project uses machine learning to predict house prices based on location and other features. It includes model training, Flask backend, and a simple frontend.
+This repository contains the code and files for a Bengaluru House Price Prediction Model. The project uses machine learning to predict house prices based on location and other features. It includes model training, a Flask backend, and a simple frontend.
 
 ### Model Prediction Results
 
@@ -8,6 +12,7 @@ Here is an example of the output from the Bengaluru House Price Prediction model
 
 ![UI](https://github.com/user-attachments/assets/7d81e333-60d8-4e3d-b177-963662b22ed7)
 
+---
 
 ## Directory Structure
 
@@ -34,6 +39,8 @@ Here is an example of the output from the Bengaluru House Price Prediction model
     └── launch.json
 ```
 
+---
+
 ## Prerequisites
 
 Before running this project, ensure you have the following:
@@ -49,6 +56,8 @@ Install the necessary Python libraries:
 pip install -r requirements.txt
 ```
 
+---
+
 ## Steps to Run the Model Locally
 
 ### 1. **Run Flask Backend**
@@ -61,25 +70,65 @@ python server/server.py
 
 The backend server will start on `http://127.0.0.1:5000`. This will serve the prediction logic and APIs.
 
-### 2. **Start Nginx**
+### 2. **Configure and Start Nginx**
 
-If you have Nginx installed, you can use it to handle reverse proxy requests. Make sure Nginx is set up and configured correctly for your environment. You can refer to the Nginx configuration at `nginx.conf`.
+If you have Nginx installed, you can use it to handle reverse proxy requests. Here are the steps:
 
-Start Nginx to proxy requests to your Flask app.
+1. **Edit Nginx Configuration**:
+   - Open your `nginx.conf` file.
+   - Add a new configuration block to proxy requests to your Flask app:
+
+   ```nginx
+   server {
+       listen 80;
+       server_name localhost;
+
+       location / {
+           proxy_pass http://127.0.0.1:5000;  # Flask app running on port 5000
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+       }
+   }
+   ```
+
+2. **Start Nginx**:
+   - Make sure the `nginx.conf` file is set up correctly in your Nginx directory.
+   - Start Nginx using the following command:
+
+   ```bash
+   nginx -c /path/to/nginx.conf
+   ```
+
+   Replace `/path/to/nginx.conf` with the actual path to your `nginx.conf` file.
 
 ### 3. **Open the Frontend**
 
-The frontend is located in the `server` folder as HTML, CSS, and JavaScript files. Open `app.html` in a browser to interact with the model.
+The frontend files (`app.html`, `app.css`, `app.js`) are located in the `server` folder. Open `app.html` in a browser to interact with the model.
 
-### 4. **Model Artifacts**
+---
+
+## Model Artifacts
 
 Ensure that the model artifacts (`banglore_home_prices_model.pickle`, `columns.json`) are present in the appropriate directories under `/model` and `/server/artifacts`. These are required for predictions.
+
+---
 
 ## Deployment
 
 **NOTE:**  
 I have not deployed this model yet. It is currently set up to run locally.
 
+---
+
 ## How to Contribute
 
 Feel free to fork this repository and contribute. If you find any bugs or have suggestions for improvement, please open an issue or submit a pull request.
+
+---
+
+### Notes:
+
+- This README file now includes detailed steps for configuring and using Nginx to proxy requests to your Flask app.
+- Make sure the `nginx.conf` file reflects the correct paths and server configurations.
