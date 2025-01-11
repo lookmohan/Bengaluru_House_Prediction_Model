@@ -45,6 +45,30 @@ Before running this project, ensure you have the following:
 - Flask for the backend
 - Nginx (for local deployment)
 - Required Python libraries: `flask`, `numpy`, `pandas`, `scikit-learn`, `pickle`, etc.
+
+## Languages and Technologies Used
+
+This project utilizes the following technologies:
+
+- **Python**: For building the prediction model and backend (Flask)
+- **Jupyter Notebook**: For model training and experimentation
+- **Flask**: Backend framework to serve the model and predictions
+- **HTML**: For building the frontend page
+- **CSS**: For styling the frontend page
+- **JavaScript**: For making the frontend interactive
+- **Nginx**: For reverse proxy and deployment (used for local hosting and serving the Flask app)
+
+### Python Libraries:
+- **scikit-learn**: For machine learning algorithms
+- **pandas**: For data manipulation and analysis
+- **numpy**: For numerical computations
+- **pickle**: For saving and loading the trained model
+- **werkzeug**: WSGI utility library used by Flask
+- **gunicorn**: WSGI HTTP server for serving Flask apps (used in production)
+
+Make sure that your files are structured properly and have the correct extensions so that GitHub recognizes and shows the languages accordingly.
+
+
   
 Install the necessary Python libraries:
 
