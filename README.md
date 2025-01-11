@@ -1,7 +1,3 @@
-Here’s the updated and corrected version of your `README.md` file with the necessary changes, including the Nginx configuration steps and other improvements:
-
----
-
 # Bengaluru House Price Prediction Model
 
 This repository contains the code and files for a Bengaluru House Price Prediction Model. The project uses machine learning to predict house prices based on location and other features. It includes model training, a Flask backend, and a simple frontend.
